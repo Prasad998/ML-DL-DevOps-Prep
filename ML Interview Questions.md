@@ -1043,31 +1043,34 @@ To choose the best algorithm, consider the following:
 
 - **Covariance** measures the relationship between two variables. It can be positive, negative, or zero. It depends on the units of the variables, so it can be hard to compare across different datasets:
 
-  \[
+  $$
   \text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
-  \]
+  $$
 
 - **Correlation** standardizes the covariance by dividing by the product of the standard deviations of the variables, making it unit-free and easier to compare:
 
-  \[
+  $$
   \text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
-  \]
+  $$
 
 ---
+
 
 ## 🧑‍💼 83. How Will You Find the Correlation Between a Categorical Variable and a Continuous Variable?
 
-- **Point-Biserial Correlation**: If the categorical variable has two categories, use the **point-biserial correlation**, which is a special case of **Pearson correlation** between a continuous and a binary variable.
-  
-  \[
+- **Point-Biserial Correlation**: If the categorical variable has two categories, use the point-biserial correlation, which is a special case of Pearson correlation between a continuous and a binary variable.
+
+  $$
   r_{pb} = \frac{M_1 - M_2}{\sigma} \sqrt{\frac{n_1 n_2}{n(n-1)}}
-  \]
+  $$
 
   Where \( M_1 \) and \( M_2 \) are the means of the two categories, and \( \sigma \) is the pooled standard deviation.
 
-- **ANOVA (Analysis of Variance)**: If the categorical variable has more than two categories, you can use **ANOVA** to test if there is a significant difference in the means of the continuous variable across the different categories.
+- **ANOVA (Analysis of Variance)**: If the categorical variable has more than two categories, you can use ANOVA to test if there is a significant difference in the means of the continuous variable across the different categories.
+
 
 ---
+
 
 ## 🤔 84. What Are the Differences Between “Bayesian” and “Frequentist” Approaches for Machine Learning?
 
