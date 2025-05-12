@@ -751,9 +751,19 @@ The typical **data science project life cycle** includes the following steps:
 
 A **good ML model** should have these properties:
 
-- **High Accuracy**: The model’s performance should be maximized: \( \text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Samples}} \).
+- **High Accuracy**: The model’s performance should be maximized:
+
+$$
+\text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Samples}}
+$$
+
 - **Generalizability**: The model should perform well on unseen data, not overfitting the training data.
-- **Interpretability**: The model's decisions should be understandable. Linear models (e.g., \( y = \beta_0 + \beta_1 X_1 + \cdots + \beta_n X_n \)) are easier to interpret than complex models.
+- **Interpretability**: The model's decisions should be understandable. Linear models are easier to interpret, such as:
+
+$$
+y = \beta_0 + \beta_1 X_1 + \cdots + \beta_n X_n
+$$
+
 - **Scalability**: The model should handle large datasets efficiently (e.g., \( O(n) \) or \( O(n \log n) \) complexity).
 - **Robustness**: The model should be resilient to noise and outliers, such as using regularization (\( L_2 \) or \( L_1 \)) in regression.
 - **Consistency**: The model's predictions should be stable and reliable when applied to new data.
@@ -767,33 +777,33 @@ For **regression models**, key metrics are:
 
 - **Mean Squared Error (MSE)**: Measures average squared difference between predicted \( \hat{y}_i \) and true values \( y_i \):
 
-  \[
-  \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-  \]
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
 
 - **Root Mean Squared Error (RMSE)**: The square root of MSE, showing error in the original units of the target variable:
 
-  \[
-  \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
-  \]
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+$$
 
 - **Mean Absolute Error (MAE)**: Measures the average absolute difference:
 
-  \[
-  \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
-  \]
+$$
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+$$
 
 - **R² (R-squared)**: Represents the proportion of variance explained by the model:
 
-  \[
-  R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
-  \]
+$$
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+$$
 
 - **Adjusted R²**: Adjusts \( R^2 \) based on the number of predictors \( p \):
 
-  \[
-  R^2_{\text{adj}} = 1 - \left( \frac{1 - R^2}{n - p - 1} \right)
-  \]
+$$
+R^2_{\text{adj}} = 1 - \left( \frac{1 - R^2}{n - p - 1} \right)
+$$
 
 ---
 
@@ -803,27 +813,27 @@ For **classification models**, key metrics include:
 
 - **Accuracy**: The proportion of correct predictions:
 
-  \[
-  \text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Samples}}
-  \]
+$$
+\text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Samples}}
+$$
 
 - **Precision**: The proportion of true positives to the total predicted positives:
 
-  \[
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-  \]
+$$
+\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+$$
 
 - **Recall (Sensitivity)**: The proportion of true positives to the total actual positives:
 
-  \[
-  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-  \]
+$$
+\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+$$
 
 - **F1-Score**: The harmonic mean of precision and recall:
 
-  \[
-  F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-  \]
+$$
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
 
 - **ROC-AUC**: Measures the classifier's ability to distinguish between classes. AUC ranges from 0 to 1, where a value of 1 indicates perfect classification.
 
@@ -833,15 +843,15 @@ For **classification models**, key metrics include:
 
 - **R² (R-squared)** measures the proportion of variance explained by the model:
 
-  \[
-  R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
-  \]
+$$
+R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
+$$
 
 - **Adjusted R²** adjusts \( R^2 \) for the number of predictors:
 
-  \[
-  R^2_{\text{adj}} = 1 - \left( \frac{1 - R^2}{n - p - 1} \right)
-  \]
+$$
+R^2_{\text{adj}} = 1 - \left( \frac{1 - R^2}{n - p - 1} \right)
+$$
 
 - **Why Prefer Adjusted R²**: Adjusted R² penalizes the inclusion of irrelevant features and helps avoid overfitting.
 
@@ -884,13 +894,15 @@ The goal is to minimize both bias and variance to achieve a model that performs 
 
 The **kernel trick** enables **SVM** to handle non-linearly separable data by implicitly mapping the input features \( \mathbf{x} \) into a higher-dimensional space using a kernel function \( K(\mathbf{x}, \mathbf{x}') \), such as:
 
+
 - **Linear Kernel**: \( K(\mathbf{x}, \mathbf{x}') = \mathbf{x}^T \mathbf{x}' \)
 - **Polynomial Kernel**: \( K(\mathbf{x}, \mathbf{x}') = (\mathbf{x}^T \mathbf{x}' + 1)^d \)
 - **RBF (Radial Basis Function) Kernel**: 
 
-  \[
-  K(\mathbf{x}, \mathbf{x}') = \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2\sigma^2}\right)
-  \]
+
+$$
+K(\mathbf{x}, \mathbf{x}') = \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2\sigma^2}\right)
+$$
 
 The kernel trick allows SVM to separate non-linear data without explicitly mapping it to a higher-dimensional space, reducing computational complexity.
 
@@ -920,15 +932,15 @@ The main difference is that **ML** is often used to create predictive models, wh
 
 - **Type 1 Error (False Positive)**: Occurs when the model incorrectly rejects a true null hypothesis (false alarm). For example, predicting a disease when the person does not have it. 
 
-  \[
-  \text{Type 1 Error} = P(\text{Rejecting null hypothesis when it's true})
-  \]
+$$
+\text{Type 1 Error} = P(\text{Rejecting null hypothesis when it's true})
+$$
 
 - **Type 2 Error (False Negative)**: Occurs when the model incorrectly accepts a false null hypothesis (miss). For example, predicting no disease when the person actually has it.
 
-  \[
-  \text{Type 2 Error} = P(\text{Failing to reject null hypothesis when it's false})
-  \]
+$$
+\text{Type 2 Error} = P(\text{Failing to reject null hypothesis when it's false})
+$$
 
 ---
 
@@ -936,15 +948,15 @@ The main difference is that **ML** is often used to create predictive models, wh
 
 - **Generative Models**: These models learn the joint probability distribution \( P(X, Y) \), and they generate new samples that resemble the training data. Examples include **Naive Bayes**, **Gaussian Mixture Models (GMM)**, and **Hidden Markov Models (HMM)**. They focus on how the data is generated.
 
-  \[
-  P(X|Y) P(Y)
-  \]
+$$
+P(X|Y) P(Y)
+$$
 
 - **Discriminative Models**: These models learn the conditional probability \( P(Y|X) \), which directly models the decision boundary between classes. Examples include **Logistic Regression**, **SVM**, and **Neural Networks**. They are optimized for classification.
 
-  \[
-  P(Y|X)
-  \]
+$$
+P(Y|X)
+$$ 
 
 ---
 
@@ -952,16 +964,15 @@ The main difference is that **ML** is often used to create predictive models, wh
 
 - **Binary Crossentropy**: Used for binary classification tasks (i.e., two classes). It measures the performance of a classification model whose output is a probability value between 0 and 1 (e.g., sigmoid function output). The loss function is:
 
-  \[
-  \text{Binary Crossentropy} = -\left( y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right)
-  \]
+$$
+\text{Binary Crossentropy} = -\left( y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right)
+$$ 
 
 - **Categorical Crossentropy**: Used for multi-class classification tasks (i.e., more than two classes). It measures the performance when the output is a probability distribution over multiple classes (using softmax function). The loss function is:
 
-  \[
-  \text{Categorical Crossentropy} = -\sum_{i} y_i \log(\hat{y_i})
-  \]
-
+$$
+\text{Categorical Crossentropy} = -\sum_{i} y_i \log(\hat{y_i})
+$$
 The difference arises because **Binary Crossentropy** deals with just one probability, while **Categorical Crossentropy** involves a distribution of probabilities across multiple classes.
 
 ---
@@ -975,9 +986,9 @@ The difference arises because **Binary Crossentropy** deals with just one probab
 
 For example, a feature \( \text{Color} \) with values {Red, Blue, Green} would be encoded as:
 
-\[
+$$
 \text{Red} = [1, 0, 0], \quad \text{Blue} = [0, 1, 0], \quad \text{Green} = [0, 0, 1]
-\]
+$$
 
 This prevents the model from incorrectly assuming that one color is "greater" than another.
 
@@ -1043,15 +1054,15 @@ To choose the best algorithm, consider the following:
 
 - **Covariance** measures the relationship between two variables. It can be positive, negative, or zero. It depends on the units of the variables, so it can be hard to compare across different datasets:
 
-  $$
-  \text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
-  $$
+$$
+\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
+$$
 
 - **Correlation** standardizes the covariance by dividing by the product of the standard deviations of the variables, making it unit-free and easier to compare:
 
-  $$
-  \text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
-  $$
+$$
+\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
+$$
 
 ---
 
@@ -1060,9 +1071,9 @@ To choose the best algorithm, consider the following:
 
 - **Point-Biserial Correlation**: If the categorical variable has two categories, use the point-biserial correlation, which is a special case of Pearson correlation between a continuous and a binary variable.
 
-  $$
-  r_{pb} = \frac{M_1 - M_2}{\sigma} \sqrt{\frac{n_1 n_2}{n(n-1)}}
-  $$
+$$
+r_{pb} = \frac{M_1 - M_2}{\sigma} \sqrt{\frac{n_1 n_2}{n(n-1)}}
+$$
 
   Where \( M_1 \) and \( M_2 \) are the means of the two categories, and \( \sigma \) is the pooled standard deviation.
 
@@ -1078,9 +1089,9 @@ To choose the best algorithm, consider the following:
 
   Bayes' Theorem:
 
-  $$
-  P(\theta|D) = \frac{P(D|\theta) P(\theta)}{P(D)}
-  $$
+$$
+P(\theta|D) = \frac{P(D|\theta) P(\theta)}{P(D)}
+$$
 
   - **Pros**: Provides a way to quantify uncertainty, works well when prior knowledge is available.
   - **Cons**: Computationally expensive and often difficult to implement.
@@ -1098,9 +1109,9 @@ To choose the best algorithm, consider the following:
 
   **Update rule:**
 
-  $$
-  \theta = \theta - \eta \nabla J(\theta)
-  $$
+$$
+\theta = \theta - \eta \nabla J(\theta)
+$$
 
   where \( \eta \) is the **learning rate**, and \( \nabla J(\theta) \) is the gradient of the cost function.
 
@@ -1108,9 +1119,9 @@ To choose the best algorithm, consider the following:
 
   **Update rule (SGD):**
 
-  $$
-  \theta = \theta - \eta \nabla J(\theta; x_i, y_i)
-  $$
+$$
+\theta = \theta - \eta \nabla J(\theta; x_i, y_i)
+$$
 
   where \( (x_i, y_i) \) is a **single training instance**.
 
