@@ -98,7 +98,7 @@ A learning approach that uses **both labeled and unlabeled data** to improve mod
 
 In Random Forests, each tree is trained on a bootstrap sample (~63%), and the rest (~37%) is OOB.  
 ➤ OOB samples act as a **validation set** for unbiased error estimation.  
-➤ It allows error computation without separate validation or CV, saving time.
+➤ It allows error computation without separate validation or Cross Validation, saving time.
 
 ---
 
