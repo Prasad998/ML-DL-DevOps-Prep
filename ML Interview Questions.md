@@ -892,6 +892,12 @@ The **curse of dimensionality** refers to the issues that arise as the number of
 
 ## ⚖️ 70. What Do You Mean by Bias-Variance Tradeoff?
 
+
+**Bias**   -  Training data ke upar boht acche results aana.
+**Variance**  -  Agar data mein thoda boht bhi change aaye toh bhi model accha hi perform kare.
+
+**Bais and variance dono best hona impossible hai**
+
 The **bias-variance tradeoff** refers to the balance between the two sources of model error:
 
 - **Bias**: Error due to overly simplistic assumptions in the model. High bias leads to **underfitting**. For example, a linear model trying to predict non-linear data.
