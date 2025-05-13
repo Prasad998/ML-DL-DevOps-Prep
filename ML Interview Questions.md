@@ -190,7 +190,7 @@ David Wolpert(1996)No single algorithm is best for **every kind of problem**.
 - **Linearity**: Relationship between inputs and output is linear.  
 - **Independence**: Observations are independent of each other.  
 - **Homoscedasticity**: Constant variance of errors.  
-- **Normality**: Residuals should be normally distributed.  
+- **Normality of Residual**: Residuals should be normally distributed.  
 - **No multicollinearity**: Predictors should not be highly correlated.  
 ➤ Violation of these assumptions can lead to biased or inefficient estimates.
 
