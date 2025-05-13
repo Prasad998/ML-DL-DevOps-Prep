@@ -106,7 +106,11 @@ In Random Forests, each tree is trained on a bootstrap sample (~63%), and the re
 
 Use Decision Tree when **model interpretability, low latency**, or **small datasets** are priorities.  
 ➤ They provide human-readable rules and visualizations.  
-➤ Random Forests improve accuracy via ensembling but are less interpretable and slower to infer.
+➤ Explainability.
+➤ Computation.
+➤ Feature Selection (Random forest chooses features randomly, sometimes hence important features may be lost).
+
+Random Forests improve accuracy via ensembling but are less interpretable and slower to infer.
 
 ---
 
@@ -120,11 +124,14 @@ Because it models the **log-odds** (logistic function) of the target class as a 
 
 ## 🌐 13. What is Online Learning vs Offline Learning?
 
-- **Online Learning**: Updates the model incrementally as each data point arrives.  
+- **Online Learning**: Updates the model incrementally as new data arrives. (Practical)  
   ➤ Useful in non-stationary environments or streaming (e.g., SGD with mini-batches).
+  ➤ Like the SVM having partial_fit() function. Hence also cost effective - coz not all data is required at once.
+  ➤ Works well in concept drift scnearios(Amazon), and continious Learning (Siri, swift Keyboard)
 
-- **Offline Learning**: Trains on the full dataset in batch mode.  
+- **Offline Learning**: Trains on the full dataset in batch mode, unlike Online learning which trains on the server itself.
   ➤ Typically more accurate but cannot adapt to new data unless retrained.
+  ➤ Clumsy process, needs efforts.
 
 ---
 
