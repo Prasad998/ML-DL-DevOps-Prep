@@ -137,18 +137,23 @@ Because it models the **log-odds** (logistic function) of the target class as a 
 
 ## 🚫 14. What is the No Free Lunch Theorem?
 
-No single algorithm is best for **every kind of problem**.  
+David Wolpert(1996)No single algorithm is best for **every kind of problem**.  
 ➤ Performance is averaged over all possible datasets; an algorithm good on one task might fail on another.  
+➤ If you don't take any assumptions while applying a Machine Learning model, then there is no other way to tell if which model would work better on which data.
 ➤ It emphasizes the need for model and data-specific experimentation.
 
 ---
 
 ## 💾 15. How to Process a 10GB Dataset on a 2GB RAM Laptop?
 
+- Downsample or preprocess features to reduce dimensionality. -> Obviously not a proper solution, hence..
 - Use **chunk-based processing** (e.g., `pandas.read_csv(chunksize=...)`), or libraries like **Dask**, **Vaex**, **Polars**.
+- Stream Data from an External Cloud Storage.
+- Extract features from the data beforehand to store efficiently.
+- Incrementally train the model.
 - Convert to efficient formats like **Parquet** or **Feather** to reduce memory usage.
 - Use **generators/yield** to stream data in Python or leverage **SQLite**/on-disk processing.
-- Downsample or preprocess features to reduce dimensionality.
+
 
 ---
 ---
