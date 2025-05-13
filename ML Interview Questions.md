@@ -173,10 +173,11 @@ David Wolpert(1996)No single algorithm is best for **every kind of problem**.
 
 ## 🎯 17. Main Points of Difference Between Bagging and Boosting?
 
-| Feature     | Bagging                        | Boosting                           |
+| Feature     | Bagging (Training data pe accha hai, but data mein changes hone pe bura hai)                       | Boosting (Training me utna accha nahi hai, but data mein change hone se utna farak nahi padega) |
 |------------|--------------------------------|------------------------------------|
-| Goal        | Reduce variance               | Reduce bias                        |
-| Approach    | Parallel model training        | Sequential model training          |
+| Model        | Low Bias High Variance(Fully grown Decision Tree) | High Bias Low Variance (Shallow Decision Tree) |
+| Goal        | Reduce variance()               | Reduce bias                        |
+| Approach    | Parallel model training (Equal weightage for all Model's Ouputs)       | Sequential model training (Different weightage for every Model output)      |
 | Sample      | Bootstrapped (random with replacement) | Focuses on hard examples (weighted) |
 | Example     | Random Forest                  | AdaBoost, XGBoost, LightGBM        |
 
