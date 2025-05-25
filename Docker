@@ -62,13 +62,13 @@ Used to define steps to build a custom image.
 
 ### 🔸 Sample Dockerfile
 
-\`\`\`Dockerfile
+```Dockerfile
 FROM node:16
 WORKDIR /app
 COPY . .
 RUN npm install
 CMD ["node", "index.js"]
-\`\`\`
+```
 
 ### 🔸 Build & Run from Dockerfile
 
@@ -142,7 +142,109 @@ docker-compose down                    # Stop and remove containers
 - Multi-stage Dockerfiles
 - Caching & Layering optimizations
 - Private Docker Registries
+---
+
+## 🌐 Docker Networking
+
+### 🔸 Types of Networks
+
+| Network Type | Description |
+|--------------|-------------|
+| **Bridge**   | Default network; containers can communicate using IP |
+| **Host**     | Shares host's networking stack; no isolation |
+| **Overlay**  | Used in Docker Swarm; allows containers on different hosts to communicate |
+
+```bash
+docker network ls                            # List networks
+docker network create <name>                 # Create custom bridge network
+docker network inspect <network-name>        # View network details
+docker network connect <network> <container> # Connect container to network
+```
 
 ---
 
-> 🚀 *Last-minute read before interview? Focus on commands + Dockerfile + volumes + port mapping.*
+## 🐝 Docker Swarm & ☸️ Kubernetes (Basics)
+
+### 🔹 Docker Swarm
+
+- Native clustering and orchestration tool for Docker
+- Use `docker swarm init` to create a Swarm
+- Define services using `docker service` commands
+
+```bash
+docker swarm init
+docker service create --replicas 3 -p 8080:80 nginx
+docker service ls
+```
+
+### 🔹 Kubernetes
+
+- Powerful container orchestration system for scaling, management
+- Uses YAML for deployment files
+- Components: Pod, Deployment, Service, Ingress
+
+```bash
+kubectl get pods
+kubectl apply -f deployment.yaml
+kubectl delete -f deployment.yaml
+```
+
+---
+
+## 🔐 Docker Security Best Practices
+
+- Use minimal base images (e.g., alpine)
+- Do not run as root user in container
+- Scan images for vulnerabilities (e.g., `docker scan`)
+- Use secrets for credentials instead of ENV vars
+- Keep Docker and images updated
+
+---
+
+## 🏗️ Multi-stage Dockerfiles
+
+Reduces image size by separating build and runtime stages.
+
+```Dockerfile
+FROM node:16 AS build
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+```
+
+---
+
+## 🚀 Caching & Layering Optimizations
+
+- Layers are cached, re-used unless changed
+- Place least frequently changed commands (like `RUN npm install`) early
+- Use `.dockerignore` to reduce build context
+- Keep layers clean using `&&` and `rm`
+
+```Dockerfile
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+```
+
+---
+
+## 🏢 Private Docker Registries
+
+- Use Docker Hub or your own registry
+
+```bash
+docker login <registry-url>
+docker tag myapp <registry-url>/myapp:tag
+docker push <registry-url>/myapp:tag
+docker pull <registry-url>/myapp:tag
+```
+
+- Self-hosted: `registry:2` image
+
+```bash
+docker run -d -p 5000:5000 --name registry registry:2
+```
+
+---
