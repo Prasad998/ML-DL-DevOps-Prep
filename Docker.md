@@ -248,3 +248,196 @@ docker run -d -p 5000:5000 --name registry registry:2
 ```
 
 ---
+---
+
+# 🧪 Docker Interview Questions 
+
+> ✅ 30 Most Common Questions with Answers
+
+---
+
+### 1. **What is Docker and why is it used?**
+Docker is a containerization platform used to package applications and their dependencies into isolated units called containers. It ensures consistency across environments and simplifies deployment.
+
+---
+
+### 2. **What is the difference between a container and a virtual machine (VM)?**
+- **Containers**: Lightweight, share the host OS kernel, start faster.
+- **VMs**: Heavier, each runs a full OS, more resource intensive.
+
+---
+
+### 3. **What is a Dockerfile?**
+A Dockerfile is a script of instructions on how to build a Docker image. It defines base image, working directory, commands to run, etc.
+
+---
+
+### 4. **How do you build and run a Docker image?**
+```bash
+docker build -t myimage .
+docker run -p 3000:3000 myimage
+```
+
+---
+
+### 5. **What is the difference between CMD and ENTRYPOINT in Dockerfile?**
+- `CMD`: Provides default arguments to the container.
+- `ENTRYPOINT`: Specifies the executable; CMD becomes default parameters for ENTRYPOINT.
+
+---
+
+### 6. **How can you persist data in Docker?**
+Use **volumes**:
+```bash
+docker volume create mydata
+docker run -v mydata:/app/data myimage
+```
+
+---
+
+### 7. **What is Docker Compose?**
+Tool for defining and running multi-container applications using a `docker-compose.yml` file.
+
+---
+
+### 8. **What is the difference between COPY and ADD in Dockerfile?**
+- `COPY`: Basic file copy.
+- `ADD`: Can also extract archives and support URLs.
+
+---
+
+### 9. **What is the difference between a Docker image and a container?**
+- **Image**: Blueprint or snapshot.
+- **Container**: Running instance of an image.
+
+---
+
+### 10. **What are some best practices for writing Dockerfiles?**
+- Use minimal base images.
+- Leverage multi-stage builds.
+- Order instructions to maximize caching.
+- Clean up unnecessary files.
+
+---
+
+### 11. **How do you check running containers?**
+```bash
+docker ps
+```
+
+---
+
+### 12. **How to expose and bind ports?**
+```bash
+docker run -p 8080:80 myapp
+```
+Maps host port 8080 to container port 80.
+
+---
+
+### 13. **How do you remove all stopped containers and unused images?**
+```bash
+docker system prune
+```
+
+---
+
+### 14. **What is Docker Hub?**
+A public registry to store and share Docker images.
+
+---
+
+### 15. **What are Docker volumes?**
+Persistent storage independent of containers.
+
+---
+
+### 16. **How do containers communicate with each other?**
+Via Docker **bridge network** or a custom network.
+
+---
+
+### 17. **What is the default network driver in Docker?**
+**bridge**
+
+---
+
+### 18. **What is the purpose of `.dockerignore`?**
+To exclude files from the build context (like `.git`, `node_modules`).
+
+---
+
+### 19. **How do you run a container in background?**
+```bash
+docker run -d <image>
+```
+
+---
+
+### 20. **What is the difference between `RUN`, `CMD`, and `ENTRYPOINT`?**
+- `RUN`: Executes at build time.
+- `CMD`: Sets default command.
+- `ENTRYPOINT`: Defines fixed executable.
+
+---
+
+### 21. **What is multi-stage build in Docker?**
+Optimize final image size by separating build and runtime environments.
+
+---
+
+### 22. **How do you inspect a container or image?**
+```bash
+docker inspect <container|image>
+```
+
+---
+
+### 23. **How to attach to a running container?**
+```bash
+docker exec -it <container-id> bash
+```
+
+---
+
+### 24. **How do you define environment variables in Docker?**
+```Dockerfile
+ENV PORT=3000
+```
+
+---
+
+### 25. **How do you scale containers using Docker Compose?**
+```bash
+docker-compose up --scale web=3
+```
+
+---
+
+### 26. **What is the purpose of health checks in Docker?**
+Used to monitor container status using the `HEALTHCHECK` directive.
+
+---
+
+### 27. **What’s the difference between `docker stop` and `docker kill`?**
+- `stop`: Graceful shutdown.
+- `kill`: Immediate termination.
+
+---
+
+### 28. **What is a dangling image?**
+An image without a tag or not referenced by any container.
+
+---
+
+### 29. **What is overlay network in Docker?**
+Used for multi-host networking, especially in Docker Swarm.
+
+---
+
+### 30. **How can you secure a Docker container?**
+- Use least-privileged user.
+- Scan images for vulnerabilities.
+- Use read-only filesystem.
+
+---
