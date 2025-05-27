@@ -3,6 +3,8 @@
 🎥 **Watch:** [CampusX - Machine Learning Interview Questions](https://www.youtube.com/playlist?list=PLKnIA16_Rmva_ZdY31wpEICG0KHnvIhu2)
 
 🎯 **Purpose:** Quick and clear revision of commonly asked ML interview questions.
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/a0e988d0-25b0-4ae4-84e1-eeae22fae12d" />
+
 
 ---
 
