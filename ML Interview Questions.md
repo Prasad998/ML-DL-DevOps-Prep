@@ -6,6 +6,7 @@
 
 🎯 **Purpose:** Quick and clear revision of commonly asked ML interview questions.
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/a0e988d0-25b0-4ae4-84e1-eeae22fae12d" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/651bb835-1725-4a09-a2ec-e68e49aa3faa" />
 
 
 ---
