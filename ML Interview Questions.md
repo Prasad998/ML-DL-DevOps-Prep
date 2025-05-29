@@ -2,11 +2,13 @@
 
 🎥 **Watch:** [CampusX - Machine Learning Interview Questions](https://www.youtube.com/playlist?list=PLKnIA16_Rmva_ZdY31wpEICG0KHnvIhu2) 
 
-🎥 **Watch:** [ML Foundations for AI Engineers](https://youtu.be/BUTjcAjfMgY?si=qnL0T-25nDQhQJz7)
+🎥 **Watch:** [ML Foundations for AI Engineers](https://youtu.be/BUTjcAjfMgY?si=qnL0T-25nDQhQJz7) | [BLOGPOST](https://medium.com/data-science-collective/ml-foundations-for-ai-engineers-bda353152d24)
 
 🎯 **Purpose:** Quick and clear revision of commonly asked ML interview questions.
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/a0e988d0-25b0-4ae4-84e1-eeae22fae12d" />
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/651bb835-1725-4a09-a2ec-e68e49aa3faa" />
+<img width="1207" alt="image" src="https://github.com/user-attachments/assets/24b6e18f-dcfe-45ed-8ec0-32fddc5cbe7c" />
+
 
 
 ---
