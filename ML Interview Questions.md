@@ -6,6 +6,24 @@
 
 🎯 **Purpose:** Quick and clear revision of commonly asked ML interview questions.
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/a0e988d0-25b0-4ae4-84e1-eeae22fae12d" />
+
+# 🧠 FFNN vs RNN vs CNN vs Transformer — Quick Comparison
+
+| Model           | Core Idea                            | Handles Order?                  | Handles Spatial Info?  | Dependency Strength                | Parallelization     | Best Use Case                         |
+| --------------- | ------------------------------------ | ------------------------------- | ---------------------- | ---------------------------------- | ------------------- | ------------------------------------- |
+| **FFNN**        | Pure input → output mapping          | ❌ No                            | ❌ No                   | None (static only)                 | ✅ Fully parallel    | Tabular data, basic classification    |
+| **RNN**         | Sequential recurrence (hidden state) | ✅ Yes (time/sequence)           | ❌ No                   | Short-term memory (long-term weak) | ❌ Sequential (slow) | Text (small seq), time series         |
+| **CNN**         | Convolution filters (local patterns) | ❌ No                            | ✅ Yes (locality)       | Local spatial only                 | ✅ Parallelizable    | Images, video, grid-like data         |
+| **Transformer** | Attention mechanism (global context) | ✅ Yes (via positional encoding) | ✅ Yes (via embeddings) | Long-range dependencies (strong)   | ✅ Highly parallel   | NLP, multimodal tasks, long sequences |
+
+---
+### 🔑 MAX DIFFERENTIATOR TO REMEMBER:
+
+* **FFNN** → *No memory, no structure.*
+* **RNN** → *Sequential memory.*
+* **CNN** → *Local patterns.*
+* **Transformer** → *Global context with attention.*
+---
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/651bb835-1725-4a09-a2ec-e68e49aa3faa" />
 <img width="1207" alt="image" src="https://github.com/user-attachments/assets/24b6e18f-dcfe-45ed-8ec0-32fddc5cbe7c" />
 
