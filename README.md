@@ -6,7 +6,7 @@ My Resources for the preparation of Machine Learning and Deep Learning Interview
 
 ### Supervised Learning
 ---
-1. [Kernel SVM using numpy](https://products.123ofai.com/qnalab/problems/kernel-svm-using-numpy)
+[1. Kernel SVM using numpy](https://products.123ofai.com/qnalab/problems/kernel-svm-using-numpy)
 
 
 ```
@@ -86,5 +86,44 @@ def kernel_svm_predict(X: np.ndarray, y: np.ndarray, test_x: np.ndarray) -> int:
 
     decision = np.sum(alpha * y * k_test) + b
     return 1 if decision >= 0 else -1
+
+```
+[2. Linear Regression](https://products.123ofai.com/qnalab/problems/linear-regression)
+
+Implement Linear Regression using the closed-form solution (Normal Equation) with NumPy.  
+You are given:
+* A **feature matrix** `X` of shape `(n, d)`, where
+  * `n` = number of training samples
+  * `d` = number of features
+* A **target vector** `y` of shape `(n,)`
+Your task:
+1. **Add a bias column** (a column of ones) to `X`.
+2. Compute the optimal weight vector `w` using the **Normal Equation**:
+3. Return the learned weight vector `w` (including the bias term), rounded to **2 decimal places**.
+```python
+Input:
+X = [[1], [2], [3]]
+y = [2, 4, 6]
+print(linear_regression(X, y))
+
+Output:
+[0.0, 2.0]
+```
+```py
+import numpy as np
+
+def linear_regression_fit(X, y):
+    X = np.asarray(X, dtype=float)      # Convert features to NumPy float array
+    y = np.asarray(y, dtype=float)      # Convert target to NumPy float array
+
+    n = X.shape[0]                      # Number of samples (rows)
+    X_bias = np.hstack((np.ones((n, 1)), X))  # Add bias (column of ones) to X
+
+    # Compute weights using Normal Equation: w = (X^T X)^+ X^T y
+    w = np.linalg.pinv(X_bias.T @ X_bias) @ X_bias.T @ y
+
+    w = np.round(w, 2)                  # Round weights to 2 decimal places
+    w[w == -0.0] = 0.0                  # Replace -0.0 with 0.0 for clean output
+    return w.tolist()                   # Return weights as Python list
 
 ```
