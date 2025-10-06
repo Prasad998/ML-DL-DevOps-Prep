@@ -127,3 +127,46 @@ def linear_regression_fit(X, y):
     return w.tolist()                   # Return weights as Python list
 
 ```
+---
+### Unsupervised Learning
+---
+[3. K-Means Clustering](https://products.123ofai.com/qnalab/problems/k-means-clustering)
+```
+Implement the K-Means clustering algorithm from scratch using NumPy.
+You are given:
+A dataset X with n samples and m features
+An integer k, representing the number of clusters
+
+Your task is to:
+1. Run the K-Means algorithm for 100 iterations (no convergence check)
+2. Assign each sample to the nearest cluster
+3. Count how many samples fall into each cluster and return a sorted list of cluster sizes
+```
+```py
+import numpy as np
+
+def k_means_cluster_sizes(X, k):
+    X = np.asarray(X, dtype=float)
+    n = X.shape[0]
+    np.random.seed(0)  # ensure reproducibility
+
+    # Step 1: Initialize centroids randomly from the dataset
+    centroids = X[np.random.choice(n, k, replace=False)]                        #Purpose: randomly select k unique indices from 0 to n-1.
+
+    
+    # Step 2: Run K-Means for 100 iterations
+    for _ in range(100):
+        # Compute distances of each point to each centroid
+        distances = np.linalg.norm(X[:, None] - centroids, axis=2)              #Adds a new axis to X #If X has shape (n, m) → X[:, None] has shape (n, 1, m).
+
+        # Assign each point to the nearest centroid       
+        labels = np.argmin(distances, axis=1)
+        # Update centroids
+        for i in range(k):                                                      #Loop over each cluster.
+            if np.any(labels == i):                                             #Check if there are any points assigned to this cluster.
+                centroids[i] = X[labels == i].mean(axis=0)                      #Selects all points assigned to cluster i & Computes the new centroid as the mean of all points in cluster i.
+                
+    # Step 3: Count how many points fall into each cluster
+    counts = np.bincount(labels, minlength=k)
+    return sorted(counts.tolist())
+```
