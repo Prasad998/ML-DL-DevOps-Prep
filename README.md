@@ -167,6 +167,6 @@ def k_means_cluster_sizes(X, k):
                 centroids[i] = X[labels == i].mean(axis=0)                      #Selects all points assigned to cluster i & Computes the new centroid as the mean of all points in cluster i.
                 
     # Step 3: Count how many points fall into each cluster
-    counts = np.bincount(labels, minlength=k)
-    return sorted(counts.tolist())
+    cluster_sizes = np.bincount(labels, minlength=k)
+    return sorted(cluster_sizes.tolist())
 ```
