@@ -206,3 +206,44 @@ def PCA(X, k):
 
 Result: $$( Y \in \mathbb{R}^{n \times k} )$$ → lower-dimensional representation capturing maximum variance.
 
+---
+| Step | Equation                                                       | Meaning                                            |
+| ---- | -------------------------------------------------------------- | -------------------------------------------------- |
+| 1    | $\mu = \frac{1}{n}\sum_i x_i$                            | overall mean                                       |
+| 2    | $( \mu_c = \frac{1}{n_c}\sum_{x_i \in c} x_i )$                  | mean per class                                     |
+| 3    | $( S_w = \sum_c \sum_{x_i \in c} (x_i - \mu_c)(x_i - \mu_c)^T )$ | within-class scatter                               |
+| 4    | $( S_b = \sum_c n_c(\mu_c - \mu)(\mu_c - \mu)^T ) $              | between-class scatter                              |
+| 5    | Solve $( S_w^{-1}S_b w = \lambda w )  $                          | generalized eigenvalue problem                     |
+| 6    | Choose $( w_{max} )$ for largest eigenvalue                      | best direction for discrimination                  |
+| 7    | Project $( Y = X w_{max} ) $                                      | new 1-D representation maximizing class separation |
+
+[5. LDA Implementation using NumPy](https://products.123ofai.com/qnalab/problems/lda-implementation-using-numpy)
+
+```py
+import numpy as np
+
+def lda(X, y):
+    X = np.asarray(X, dtype=float)                     # Convert input data to float array → shape (n_samples, n_features)
+    y = np.asarray(y)                                  # Convert labels to NumPy array
+
+    class_labels = np.unique(y)                        # Get all unique class labels
+    mean_overall = np.mean(X, axis=0)                  # Compute overall mean vector μ
+
+    S_w = np.zeros((X.shape[1], X.shape[1]))           # Initialize within-class scatter matrix (S_w)
+    S_b = np.zeros((X.shape[1], X.shape[1]))           # Initialize between-class scatter matrix (S_b)
+
+    for c in class_labels:                             # Loop over each class
+        X_c = X[y == c]                                # Select samples belonging to class c
+        mean_c = np.mean(X_c, axis=0)                  # Compute class mean vector μ_c
+        S_w += (X_c - mean_c).T @ (X_c - mean_c)       # Update within-class scatter: S_w += Σ(x - μ_c)(x - μ_c)ᵀ
+
+        n_c = X_c.shape[0]                                 # Number of samples in class c
+        mean_diff = (mean_c - mean_overall).reshape(-1, 1)
+        S_b += n_c * (mean_diff @ mean_diff.T)             # Update between-class scatter: S_b += n_c(μ_c - μ)(μ_c - μ)ᵀ
+
+    eig_vals, eig_vecs = np.linalg.eig(np.linalg.pinv(S_w) @ S_b)   # Solve eigenproblem for S_w⁻¹S_b → eig_vecs are discriminant directions
+    top_vec = eig_vecs[:, np.argmax(eig_vals)].reshape(-1, 1)       # Select eigenvector with largest eigenvalue (maximizes class separability)
+
+    projected = X @ top_vec                          # Project data onto top discriminant direction: Y = Xw
+    return projected.shape                            # Return the shape of reduced data (n_samples, 1)
+```
