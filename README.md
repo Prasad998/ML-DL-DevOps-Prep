@@ -142,6 +142,7 @@ Your task is to:
 2. Assign each sample to the nearest cluster
 3. Count how many samples fall into each cluster and return a sorted list of cluster sizes
 ```
+
 ```py
 import numpy as np
 
@@ -171,3 +172,37 @@ def k_means_cluster_sizes(X, k):
     cluster_sizes = np.bincount(labels, minlength=k)
     return sorted(cluster_sizes.tolist())
 ```
+
+---
+
+[4. PCA Implementation](https://products.123ofai.com/qnalab/problems/pca-implementation)
+
+
+**One-line summary:** PCA finds the top-k directions (principal components) that maximize data variance by eigen-decomposing the covariance matrix, then projects mean-centered data onto those directions.
+
+```python
+import numpy as np
+
+def PCA(X, k):
+    
+    X = np.asarray(X, dtype=float)                     # Step 1: Convert input data to a NumPy float array
+    X_centered = X - np.mean(X, axis=0)                # Step 2: Center the data by subtracting the mean of each feature
+    cov = np.cov(X_centered, rowvar=False)             # Step 3: Compute the covariance matrix of centered data
+    eigenvalues, eigenvectors = np.linalg.eigh(cov)    # Step 4: Find eigenvalues and eigenvectors of the covariance matrix
+    sorted_indices = np.argsort(eigenvalues)[::-1]     # Step 5: Sort eigenvalues (and corresponding eigenvectors) in descending order
+    top_k = eigenvectors[:, sorted_indices[:k]]        # Step 6: Select the top-k eigenvectors (principal components)
+    reduced = X_centered @ top_k                       # Step 7: Project the centered data onto the top-k principal components
+    return reduced.shape                               # Step 8: Return the shape of reduced data (n_samples, k_features)
+```
+
+### 🧠 Summary of what happens mathematically:
+
+1. **Mean-center** → $$( X_c = X - \mu )$$
+2. **Covariance** → $$( \Sigma = \frac{1}{n-1} X_c^T X_c )$$
+3. **Eigen-decomposition** → $$( \Sigma v_j = \lambda_j v_j )$$
+4. **Select top-k eigenvectors** $$(largest (\lambda_j))$$
+5. **Project** → $$( Y = X_c V_k )$$
+
+
+Result: $$( Y \in \mathbb{R}^{n \times k} )$$ → lower-dimensional representation capturing maximum variance.
+
