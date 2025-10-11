@@ -158,6 +158,7 @@ def k_means_cluster_sizes(X, k):
     for _ in range(100):
         # Compute distances of each point to each centroid
         distances = np.linalg.norm(X[:, None] - centroids, axis=2)              #Adds a new axis to X #If X has shape (n, m) → X[:, None] has shape (n, 1, m).
+                                                                                # norm does it back to (n,m) dimension after the operation. 
 
         # Assign each point to the nearest centroid       
         labels = np.argmin(distances, axis=1)
